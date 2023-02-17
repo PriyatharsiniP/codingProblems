@@ -13,8 +13,6 @@ So, the answer is 3 days.*/
 public class MoviesBetterSolution2 {
 
 	public static void main(String[] args) {
-		int noOfDaysWatched = 0;
-		double minMovieDuration = 1.01;
 		double maxMovieDuration = 3.00;
 		List<Double> watchedList = new ArrayList<>();
 		List<Double> movieList= new ArrayList<>();
@@ -24,11 +22,10 @@ public class MoviesBetterSolution2 {
         movieList.add(1.6);
         movieList.add(2.6);
         movieList.add(1.7);
-        findMinTime(movieList,noOfDaysWatched,minMovieDuration,maxMovieDuration,watchedList);		
+        findMinTime(movieList,maxMovieDuration,watchedList);		
 	}
 
-	private static void findMinTime(List<Double> movieList, int noOfDaysWatched, double minMovieDuration,
-			double maxMovieDuration, List<Double> watchedList) {
+	private static void findMinTime(List<Double> movieList, double maxMovieDuration, List<Double> watchedList) {
 		List<Double> sortedMovieList = movieList.stream().sorted().collect(Collectors.toList());//[1.01, 1.5, 1.6, 1.7, 2.4, 2.6], [2.6, 2.4, 2.71, 1.6, 1.5]
 		int pointerOne = 0; //0
 		int pointerTwo = sortedMovieList.size()-1;//4
